@@ -13,8 +13,12 @@ export const Home = () => {
 
   useEffect(() => {
     const getQuote = async () => {
-      const fetchedQuote = await fetchQuote()
-      setQuote(fetchedQuote)
+      try {
+        const fetchedQuote = await fetchQuote()
+        setQuote(fetchedQuote)
+      } catch (error: unknown) {
+        console.error(error)
+      }
     }
 
     getQuote()
